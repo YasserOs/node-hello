@@ -14,16 +14,16 @@ resource "aws_default_subnet" "default_subnet_b" {
 
 
 resource "aws_vpc_endpoint" "s3" {
-  vpc_id       = aws_vpc.main.id
+  vpc_id       = aws_default_vpc.default_vpc.id
   service_name = "com.amazonaws.us-east-2.s3"
 }
 
 resource "aws_vpc_endpoint" "ecr" {
-  vpc_id       = aws_vpc.main.id
+  vpc_id       = aws_default_vpc.default_vpc.id
   service_name = "com.amazonaws.us-east-2.ecr.api"
 }
 
 resource "aws_vpc_endpoint" "ecr2" {
-  vpc_id       = aws_vpc.main.id
+  vpc_id       = aws_default_vpc.default_vpc.id
   service_name = "com.amazonaws.us-east-2.ecr.dkr"
 }
