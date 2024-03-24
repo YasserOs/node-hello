@@ -33,8 +33,9 @@ jobs:
     name: Build Image
     needs: Lint
     runs-on: ubuntu-latest
-
-   
+    outputs:
+      imageTag: ${{ steps.commit-hash.outputs.COMMIT_HASH }}
+  
     steps:
 
     - name: Check out code
@@ -52,7 +53,7 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Get commit hash
-      id: hash
+      id: commit-hash
       run: echo "COMMIT_HASH=$(git rev-parse --short HEAD)" >> "$GITHUB_OUTPUT"
 
     - name: Build, tag, and push image to Amazon ECR
@@ -66,6 +67,12 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest 
     
+  Deploy-App:
+    name: deploy through Terraform
+    needs: build-Push-ECR
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
@@ -77,4 +84,4 @@ jobs:
         terraform init
         terraform apply -auto-approve
       env:
-        TF_VAR_tag: ${{ steps.hash.outputs.COMMIT_HASH }} 
+        TF_VAR_tag: ${{ needs.build-Push-ECR.outputs.imageTag }} 
