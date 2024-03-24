@@ -30,10 +30,16 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         terraform_version: 1.7.5
+    
     - name: Terraform Init
       run: |
         cd terraform 
         terraform init
+    - name: Terraform Validate
+      run: |
+        cd terraform
+        terraform vaildate
+        
     - name: Terraform Apply
       run: |
         cd terraform 
