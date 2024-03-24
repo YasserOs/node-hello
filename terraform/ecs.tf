@@ -3,7 +3,7 @@ resource "aws_ecs_task_definition" "app_task" {
   container_definitions    = <<DEFINITION
   [
     {
-      "name": "hello-world",
+      "name": "Nodejs-Hello-world",
       "image": "${aws_ecr_repository.app_ecr_repo.repository_url}",
       "essential": true,
       "portMappings": [
@@ -27,7 +27,7 @@ resource "aws_ecs_task_definition" "app_task" {
 
 # main.tf
 resource "aws_ecs_service" "app_service" {
-  name            = "app-first-service"     # Name the service
+  name            = "Nodejs-service"     # Name the service
   cluster         = "${aws_ecs_cluster.my_cluster.id}"   # Reference the created Cluster
   task_definition = "${aws_ecs_task_definition.app_task.arn}" # Reference the task that the service will spin up
   launch_type     = "FARGATE"
