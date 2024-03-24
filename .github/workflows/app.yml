@@ -73,7 +73,7 @@ jobs:
     
     - name: Terraform Apply
       run: |
-        cd ../terraform
+        cd terraform
         terraform apply -auto-approve
       env:
         TF_VAR_tag: ${{ steps.hash.outputs.COMMIT_HASH }} 
