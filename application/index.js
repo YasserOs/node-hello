@@ -3,10 +3,10 @@ const port = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  const msg = 'Hello Node v1 \n'
+  const msg = 'Testing Node Js Deployment on ECS using Terraform and Github Actions \n'
   res.end(msg);
 });
 
 server.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}/`);
+  console.log(`Server running on ECS port : ${port}/`);
 });
