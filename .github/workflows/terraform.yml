@@ -47,8 +47,8 @@ jobs:
 
     - name: Change Tag back to TAG
       run: |
-      cd terraform
-      sed -i "s/\(image\": \"\${aws_ecr_repository\.app_ecr_repo\.repository_url}:\)[^\"]*/\1TAG/" ./ecs.tf
+        cd terraform
+        sed -i "s/\(image\": \"\${aws_ecr_repository\.app_ecr_repo\.repository_url}:\)[^\"]*/\1TAG/" ./ecs.tf
 
     - uses: stefanzweifel/git-auto-commit-action@v5
       name: commit changes to Tag
