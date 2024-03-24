@@ -1,10 +1,20 @@
+resource "aws_ecr_repository" "app_ecr_repo" {
+  name = "nodejs-app-repo"
+}
+
+resource "aws_ecs_cluster" "my_cluster" {
+  name = "nodejs-fargate-cluster" # Name your cluster here
+}
+
+
+
 resource "aws_ecs_task_definition" "app_task" {
   family                   = "Nodejs-Hello-world" # Name your task
   container_definitions    = <<DEFINITION
   [
     {
       "name": "Nodejs-Hello-world",
-      "image": "${aws_ecr_repository.app_ecr_repo.repository_url}",
+      "image": "${aws_ecr_repository.app_ecr_repo.repository_url}:${var.tag}",
       "essential": true,
       "portMappings": [
         {
