@@ -68,7 +68,7 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest 
     
   Deploy-App:
-    name: deploy through Terraform
+    name: Terraform CD
     needs: build-Push-ECR
     runs-on: ubuntu-latest
 
