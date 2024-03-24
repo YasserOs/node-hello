@@ -14,7 +14,7 @@ resource "aws_ecs_task_definition" "app_task" {
   [
     {
       "name": "Nodejs-Hello-world",
-      "image": "${aws_ecr_repository.app_ecr_repo.repository_url}:TAG",
+      "image": "${aws_ecr_repository.app_ecr_repo.repository_url}:a138776",
       "essential": true,
       "portMappings": [
         {
