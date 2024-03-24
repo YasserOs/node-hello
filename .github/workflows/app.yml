@@ -21,6 +21,9 @@ jobs:
       
     - uses: super-linter/super-linter@v5.7.2
       name: Super-Linter
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
 
   
   build-Push-ECR:
