@@ -35,9 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    outputs:
-      imageTag: ${{ steps.commit-hash.outputs.COMMIT_HASH }}
-  
+      
     steps:
 
     - name: Check out code
