@@ -25,7 +25,35 @@ resource "aws_ecs_task_definition" "app_task" {
       ],
       "memory": 512,
       "cpu": 256
-    }
+    },
+    {
+        "environment": [
+          {
+            "name": "NRIA_OVERRIDE_HOST_ROOT",
+            "value": ""
+          },
+          {
+            "name": "NRIA_IS_FORWARD_ONLY",
+            "value": "true"
+          },
+          {
+            "name": "FARGATE",
+            "value": "true"
+          },
+          {
+            "name": "NRIA_PASSTHROUGH_ENVIRONMENT",
+            "value": "ECS_CONTAINER_METADATA_URI,ECS_CONTAINER_METADATA_URI_V4,FARGATE"
+          },
+          {
+            "name": "NRIA_CUSTOM_ATTRIBUTES",
+            "value": "{\"nrDeployMethod\":\"downloadPage\"}"
+          }
+        ],
+        "secrets": [
+          {
+            "valueFrom": "/newrelic-infra/ecs/license-key",
+            "name": "NRIA_LICENSE_KEY"
+          }
         ],
         "cpu": 256,
         "memoryReservation": 512,
