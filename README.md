@@ -41,14 +41,15 @@ This workflow is responsible for provisioning and managing the infrastructure. I
 The resources created by this workflow include:
 - ECR
 - ECS Cluster
-- VPC
-- Subnets
 - ECS Task Definition
 - ECS Service
+- ECS Task Execution Role
+- VPC
+- Subnets
 - Load Balancer
 - Target Group
 - Security Groups
-- ECS Task Execution Role
+
 
 ### Application CI Workflow
 
