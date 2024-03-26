@@ -25,14 +25,49 @@ resource "aws_ecs_task_definition" "app_task" {
       ],
       "memory": 512,
       "cpu": 256
-    }
+    },
+    {
+        "environment": [
+          {
+            "name": "NRIA_OVERRIDE_HOST_ROOT",
+            "value": ""
+          },
+          {
+            "name": "NRIA_IS_FORWARD_ONLY",
+            "value": "true"
+          },
+          {
+            "name": "FARGATE",
+            "value": "true"
+          },
+          {
+            "name": "NRIA_PASSTHROUGH_ENVIRONMENT",
+            "value": "ECS_CONTAINER_METADATA_URI,ECS_CONTAINER_METADATA_URI_V4,FARGATE"
+          },
+          {
+            "name": "NRIA_CUSTOM_ATTRIBUTES",
+            "value": "{\"nrDeployMethod\":\"downloadPage\"}"
+          }
+        ],
+        "secrets": [
+          {
+            "valueFrom": "/newrelic-infra/ecs/license-key",
+            "name": "NRIA_LICENSE_KEY"
+          }
+        ],
+        "cpu": 256,
+        "memoryReservation": 512,
+        "image": "newrelic/nri-ecs:1.11.0",
+        "name": "newrelic-infra"
+      }
+    
   ]
   DEFINITION
   requires_compatibilities = ["FARGATE"] # use Fargate as the launch type
   network_mode             = "awsvpc"    # add the AWS VPN network mode as this is required for Fargate
-  memory                   = 512         # Specify the memory the container requires
-  cpu                      = 256         # Specify the CPU the container requires
-  execution_role_arn       = "${aws_iam_role.ecsTaskExecutionRole.arn}"
+  memory                   = 1024         # Specify the memory the container requires
+  cpu                      = 512         # Specify the CPU the container requires
+  execution_role_arn       = "arn:aws:iam::851725329212:role/NewRelicECSIntegration-Ne-NewRelicECSTaskExecutionR-5BId26lIdMYO"
 }
 
 
