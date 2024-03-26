@@ -73,26 +73,3 @@ jobs:
 
     - uses: stefanzweifel/git-auto-commit-action@v5
       name: commit changes to Tag
-
-      
-  # Deploy-App:
-  #   name: Terraform CD
-  #   needs: build-Push-ECR
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #   - name: Check out code
-  #     uses: actions/checkout@v2
-    
-  #   - name: Setup Terraform
-  #     uses: hashicorp/setup-terraform@v1
-  #     with:
-  #       terraform_version: 1.7.5
-    
-  #   - name: Terraform Init&Apply
-  #     run: |
-  #       cd terraform
-  #       terraform init
-  #       terraform apply -auto-approve
-  #     env:
-  #       TF_VAR_tag: ${{ needs.build-Push-ECR.outputs.imageTag }} 

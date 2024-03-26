@@ -9,6 +9,9 @@ jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./terraform
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -26,13 +29,10 @@ jobs:
     
     - name: Terraform Init
       run: |
-        cd terraform 
         terraform init
 
     - name: Terraform Destroy
       run: |
-        cd terraform 
-        aws ecr delete-repository --repository-name nodejs-app-repo --force
         terraform destroy -lock=false -auto-approve
         
     
