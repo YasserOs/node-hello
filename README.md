@@ -29,7 +29,7 @@ Before getting started, ensure you have the following:
 
 ## Workflows
 
-### Infrastructure CI/CD Workflow
+### Terraform CI/CD Workflow
 
 This workflow is responsible for provisioning and managing the infrastructure. It consists of the following steps:
 
@@ -50,6 +50,7 @@ The resources created by this workflow include:
 - Target Group
 - Security Groups
 
+**at the end of the terraform apply job , the loadbalancer url is provided , copy and paste it in your browser to browse your application**
 
 ### Application CI Workflow
 
@@ -63,6 +64,9 @@ This workflow handles Continuous Integration for the application. It performs th
 
 These workflows together facilitate CI/CD for both the infrastructure and the application. The CD for the application is also managed by the Terraform workflow.
 
+### Terraform destroy Workflow
+
+This workflow handles destroying all the aws infrastructure a.
 
 ---
 ## New Relic Integration
