@@ -1,6 +1,3 @@
-# Project README
-
----
 
 ## Summary
 
@@ -64,3 +61,14 @@ This workflow handles Continuous Integration for the application. It performs th
 
 
 These workflows together facilitate CI/CD for both the infrastructure and the application. The CD for the application is also managed by the Terraform workflow.
+
+
+---
+## New Relic Integration
+
+To integrate New Relic, follow these steps:
+
+1. Sign up for a New Relic account and obtain the license key.
+2. Follow the installation instructions in [this link](https://docs.newrelic.com/docs/infrastructure/elastic-container-service-integration/install-ecs-integration/#next-steps).
+3. Download the task definition of the new relic container using the command `curl -O https://download.newrelic.com/infrastructure_agent/integrations/ecs/newrelic-infra-ecs-fargate-example-latest.json`.
+4. Embed the JSON in your task definition in the `ecs.tf` file, replacing placeholders with the actual values of the ARNs of the resources created by any of the installation methods from the documentation.
