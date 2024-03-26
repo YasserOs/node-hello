@@ -3,7 +3,7 @@ const port = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  const msg = 'Testing Node Js Deployment on ECS using Terraform and Github Actions \n'
+  const msg = 'Testing Node Js Deployment on ECS using Terraform and Github Actions v1 \n'
   res.end(msg);
 });
 

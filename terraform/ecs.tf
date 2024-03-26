@@ -1,5 +1,6 @@
 resource "aws_ecr_repository" "app_ecr_repo" {
   name = "nodejs-app-repo"
+  force_delete = true
 }
 
 resource "aws_ecs_cluster" "my_cluster" {
