@@ -1,5 +1,5 @@
 
-## Summary
+# Summary
 
 This repository contains the necessary files to set up a CI/CD pipeline for a Node.js application deployed on AWS using Terraform. It is organized into three main folders:
 
@@ -7,9 +7,9 @@ This repository contains the necessary files to set up a CI/CD pipeline for a No
 - **terraform**: Holds all the `.tf` files for infrastructure provisioning using Terraform.
 - **githubworkflows**: Contains YAML files for GitHub Actions workflows.
 
-## Getting Started
+# Getting Started
 
-### Prerequisites
+## Prerequisites
 
 Before getting started, ensure you have the following:
 
@@ -19,7 +19,7 @@ Before getting started, ensure you have the following:
 - An S3 bucket for remote storage of the Terraform state file.
 - A DynamoDB table for state file locking.
 
-### Steps
+## Steps
 
 1. Clone this repository to your local machine.
 2. Set up the required AWS credentials and secrets as GitHub secrets.
@@ -27,9 +27,9 @@ Before getting started, ensure you have the following:
 4. Update the Terraform files with your desired configurations.
 5. Trigger the GitHub Actions Terraform CI/CD workflow 1st to create the infrastructure , then run the the Application workflow by pushing changes to the repository or by manually triggering the workflow from the UI .
 
-## Workflows
+# Workflows
 
-### Terraform CI/CD Workflow
+## Terraform CI/CD Workflow
 
 This workflow is responsible for provisioning and managing the infrastructure. It consists of the following steps:
 
@@ -52,7 +52,7 @@ The resources created by this workflow include:
 
 ### NOTE : at the end of the terraform apply job , the loadbalancer url is provided , copy and paste it in your browser to browse your application
 
-### Application CI Workflow
+## Application CI Workflow
 
 This workflow handles Continuous Integration for the application. It performs the following steps:
 
@@ -64,7 +64,7 @@ This workflow handles Continuous Integration for the application. It performs th
 
 These workflows together facilitate CI/CD for both the infrastructure and the application. The CD for the application is also managed by the Terraform workflow.
 
-### Terraform destroy Workflow
+## Terraform destroy Workflow
 
 This workflow handles destroying all the aws infrastructure a.
 
