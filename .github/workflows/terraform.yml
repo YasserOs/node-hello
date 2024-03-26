@@ -43,7 +43,7 @@ jobs:
 
     - name: Terraform Apply
       run: |
-        terraform apply -auto-approve
+        terraform apply -auto-approve -lock=false
 
     - name: Change Tag back to TAG
       run: |
