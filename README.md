@@ -28,6 +28,7 @@ Before getting started, ensure you have the following:
 5. Trigger the GitHub Actions Terraform CI/CD workflow 1st to create the infrastructure , then run the the Application workflow by pushing changes to the repository or by manually triggering the workflow from the UI .
 
 # Workflows
+---
 
 ## Terraform CI/CD Workflow
 
@@ -51,6 +52,7 @@ The resources created by this workflow include:
 - Security Groups
 
 ### NOTE : at the end of the terraform apply job , the loadbalancer url is provided , copy and paste it in your browser to browse your application
+---
 
 ## Application CI Workflow
 
@@ -63,6 +65,7 @@ This workflow handles Continuous Integration for the application. It performs th
 
 
 These workflows together facilitate CI/CD for both the infrastructure and the application. The CD for the application is also managed by the Terraform workflow.
+---
 
 ## Terraform destroy Workflow
 
