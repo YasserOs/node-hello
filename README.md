@@ -64,12 +64,12 @@ This workflow handles Continuous Integration for the application. It performs th
 3. **Updates Image tag in ECS task definition in ecs.tf file in terraform folder**: it updates the ECS task definition in the Terraform files, adopting a GitOps approach. This triggers the Terraform workflow to update the ECS task definition with the newly created image tag.
 
 
-These workflows together facilitate CI/CD for both the infrastructure and the application. The CD for the application is also managed by the Terraform workflow.
+**These workflows together facilitate CI/CD for both the infrastructure and the application. The CD for the application is also managed by the Terraform workflow.**
 ---
 
 ## Terraform destroy Workflow
 
-This workflow handles destroying all the aws infrastructure a.
+This workflow handles destroying all the aws infrastructure .
 
 ---
 ## New Relic Integration
