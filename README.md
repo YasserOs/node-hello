@@ -50,7 +50,7 @@ The resources created by this workflow include:
 - Target Group
 - Security Groups
 
-#### at the end of the terraform apply job , the loadbalancer url is provided , copy and paste it in your browser to browse your application
+### NOTE : at the end of the terraform apply job , the loadbalancer url is provided , copy and paste it in your browser to browse your application
 
 ### Application CI Workflow
 
