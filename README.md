@@ -1,7 +1,7 @@
 
 # Summary
 
-This repository contains the necessary files to set up a CI/CD pipeline for a Node.js application deployed on AWS using Terraform. It is organized into three main folders:
+This repository contains the necessary files to set up a CI/CD pipeline for a Node.js application deployed on AWS ECS using Terraform. It is organized into three main folders:
 
 - **application**: Contains Node.js files and a Dockerfile for the application.
 - **terraform**: Holds all the `.tf` files for infrastructure provisioning using Terraform.
